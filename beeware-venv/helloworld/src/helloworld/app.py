@@ -17,7 +17,7 @@ class HelloWorld(toga.App):
         show the main window.
         """
         # 创建一个主框
-        main_box = toga.Box(style=Pack(direction=COLUMN))       # 这里的COLUMN决定了其内部件的排列顺序——上下。
+        main_box = toga.Box(style=Pack(direction=COLUMN))  # 这里的COLUMN决定了其内部件的排列顺序——上下。
         """
         style应用样式：
         Toga 的内置布局系统称为“Pack”。
@@ -30,9 +30,9 @@ class HelloWorld(toga.App):
         """
 
         # 创建两个部件：1个标签
-        name_label = toga.Label('Your name: ', style=Pack(padding=(0, 5)))      # padding是用来设置部件的上下、左右间距（上下, 左右）
+        name_label = toga.Label('Your name: ', style=Pack(padding=(0, 5)))  # padding是用来设置部件的上下、左右间距（上下, 左右）
         # 1个输入框，输入框中的值，后续需要使用，因此定义为类变量
-        self.name_input = toga.TextInput(style=Pack(flex=1))    # flex是指flexible灵活的，即输入框将占用所有可用空间
+        self.name_input = toga.TextInput(style=Pack(flex=1))  # flex是指flexible灵活的，即输入框将占用所有可用空间
         """
         两个小部件都有与之关联的样式；
         Label 将在其左侧和右侧有 5px 的填充，顶部和底部没有填充。
@@ -72,7 +72,16 @@ class HelloWorld(toga.App):
         self.main_window.show()
 
     def sayhello(self, widget):
-        print('Hello,', self.name_input.value)
+        # print('Hello,', self.name_input.value)
+        """
+        加一个对话框来打招呼，而不是写到控制台
+        :param widget:
+        :return:
+        """
+        self.main_window.info_dialog(
+            'Hi, there!',
+            f"Hello, {self.name_input.value}"
+        )
 
 
 def main():
