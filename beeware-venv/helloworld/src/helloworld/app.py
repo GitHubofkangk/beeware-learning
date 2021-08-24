@@ -75,9 +75,14 @@ class HelloWorld(toga.App):
         # print('Hello,', self.name_input.value)
         """
         加一个对话框来打招呼，而不是写到控制台
+        判断输入框内是否有值
         :param widget:
         :return:
         """
+        if self.name_input.value:
+            name = self.name_input.value
+        else:
+            name = 'stranger'
         self.main_window.info_dialog(
             'Hi, there!',
             f"Hello, {self.name_input.value}"
